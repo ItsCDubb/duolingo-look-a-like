@@ -11,6 +11,7 @@ const App = () => {
   const [currentQuestion, setCurrentQuestion] = useState(
     questions[currentQuestionIndex]
   );
+  const [lives, setLives] = useState(5);
 
   useEffect(() => {
     if (currentQuestionIndex >= questions.length) {
@@ -25,13 +26,31 @@ const App = () => {
     setCurrentQuestionIndex(currentQuestionIndex + 1);
   };
 
+  const restart = () => {
+    setLives(5);
+    setCurrentQuestionIndex(0);
+  };
+
   const onWrong = () => {
-    Alert.alert("No!");
+    if (lives <= 1) {
+      Alert.alert("You lose!", "Try again!", [
+        {
+          text: "Try again!",
+          onPress: restart,
+        },
+      ]);
+    } else {
+      Alert.alert("No!");
+      setLives(lives - 1);
+    }
   };
 
   return (
     <View style={styles.root}>
-      <Header progress={currentQuestionIndex / questions.length} />
+      <Header
+        progress={currentQuestionIndex / questions.length}
+        lives={lives}
+      />
       {currentQuestion.type === "IMAGE_MULTIPLE_CHOICE" && (
         <MultipleChoiceQuestion
           question={currentQuestion}
