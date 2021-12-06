@@ -149,24 +149,16 @@ export default [
   // {
   //   id: "q7",
   //   type: "FILL_IN_THE_BLANK",
-  //   parts: [
-  //     {
-  //       text: "la",
-  //       isBlank: true,
-  //     },
-  //     {
-  //       text: "nino",
-  //       isBlank: true,
-  //     },
-  //     {
-  //       text: "el",
-  //       isBlank: true,
-  //     },
-  //     {
-  //       text: "nina",
-  //       isBlank: true,
-  //     },
-  //   ],
+  //   textPre: '',
+  //   textPost: '',
   //   options: ["la", "el", "nina", "nino", "ella"],
   // },
+  {
+    id: "q8",
+    type: "FILL_IN_THE_BLANK",
+    textPre: "una nina, una",
+    textPost: "",
+    options: ["yo", "la", "mujer", "el"],
+    correct: "mujer",
+  },
 ];

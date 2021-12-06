@@ -14,6 +14,7 @@ const MultipleChoiceQuestion = ({ question, onCorrect, onWrong }) => {
       setSelected(null);
     } else {
       onWrong();
+      setSelected(null);
     }
   };
 

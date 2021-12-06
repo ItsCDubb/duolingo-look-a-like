@@ -5,6 +5,7 @@ import MultipleChoiceQuestion from "./src/components/MultipleChoiceQuestion";
 import OpenEndedQuestion from "./src/components/OpenEndedQuestion";
 import Header from "./src/components/Header";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import FillInTheBlank from "./src/components/FillInTheBlank";
 import styles from "./App.styles";
 
 const App = () => {
@@ -98,6 +99,13 @@ const App = () => {
       )}
       {currentQuestion.type === "OPEN_ENDED" && (
         <OpenEndedQuestion
+          question={currentQuestion}
+          onCorrect={onCorrect}
+          onWrong={onWrong}
+        />
+      )}
+      {currentQuestion.type === "FILL_IN_THE_BLANK" && (
+        <FillInTheBlank
           question={currentQuestion}
           onCorrect={onCorrect}
           onWrong={onWrong}
